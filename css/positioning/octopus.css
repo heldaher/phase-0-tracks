@@ -1,0 +1,31 @@
+body {
+	background-color: red;
+}
+
+#octopus {
+	background-color: blue;
+	position: absolute;
+	display: block;
+	margin-left: 210px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-top: 80px;
+}
+
+#glasses {
+	position: absolute;
+	display: block;
+	margin-left: 250px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-top: 180px;
+}
+
+#hat {
+	position: absolute;
+	display: block;
+	margin-left: 200px;
+	margin-right: auto;
+	margin-top: -20px;
+	margin-bottom: auto;
+}
