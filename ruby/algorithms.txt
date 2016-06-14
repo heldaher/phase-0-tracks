@@ -1,0 +1,50 @@
+
+Algorithm for robot using an elevator:
+
+*Starting point: robot is in front of an elevator and knows which floor it wants to go to
+
+
+1)
+- Find where the current floor is provided
+
+
+2)
+- Conditional statement:
+	- If floor destination is greater than current floor, press up arrow
+		- Else if floor destination is less than current floor, press down arrow
+		- Else do not use elevator (as you are already the destination floor)
+	- Wait until one set of elevator doors open
+- End of conditional statement	
+
+
+3)
+- Loop (once elevator doors have opened):
+	- If highlighted up or down arrow does not equal the arrow that was pressed, do not get in elevator
+	- If highlighted up or down arrow equals the arrow that was pressed, then 
+		- If elevator is empty, enter the elevator
+		- If elevator is not empty:
+			- Wait until it becomes empty
+			- Enter elevator
+- End of loop
+
+
+4)
+- Once in elevator, look around until see set of numbers with buttons next to them
+- Click the button next to the listed destination floor
+
+
+5)
+- Loop
+	- Make sure entire body is within the elevator before the elevator doors close
+	- When elevator doors open:
+		- If floor on which doors open does not equal destination floor, do not exit.
+		- If floor on which doors open equals destination floor, exit!
+- End of Loop
+
+
+
+
+
+Algorithm for every day activity
+
+	
