@@ -1,50 +1,72 @@
 
 Algorithm for robot using an elevator:
 
-*Starting point: robot is in front of an elevator and knows which floor it wants to go to
+*Starting point: robot is in front of an elevator and knows which floor it wants to go to and which floor it is on
 
 
-1)
-- Find where the current floor is provided
-
-
-2)
+1) Whether to ride elevator and which direction
 - Conditional statement:
 	- If floor destination is greater than current floor, press up arrow
-		- Else if floor destination is less than current floor, press down arrow
-		- Else do not use elevator (as you are already the destination floor)
-	- Wait until one set of elevator doors open
+	- Else if floor destination is less than current floor, press down arrow
+	- Else do not use elevator (as you are already the destination floor)
 - End of conditional statement	
 
 
-3)
-- Loop (once elevator doors have opened):
-	- If highlighted up or down arrow does not equal the arrow that was pressed, do not get in elevator
-	- If highlighted up or down arrow equals the arrow that was pressed, then 
-		- If elevator is empty, enter the elevator
-		- If elevator is not empty:
-			- Wait until it becomes empty
-			- Enter elevator
+2) Entering elevator
+- For every time the door opens:
+	- Until highlighted up or down arrow equals the arrow that was pressed
+		- If highlighted up or down arrow does not equal the arrow that was pressed, do not get in elevator
 - End of loop
+- If elevator is empty, enter the elevator
+- Else (if elevator is not empty):
+	- Wait until it becomes empty
+	- Wait until any others also waiting for elevator enter (to be polite!)
+	- Enter elevator
 
 
-4)
+3) Selecting destination floor
 - Once in elevator, look around until see set of numbers with buttons next to them
-- Click the button next to the listed destination floor
+- If the button next to the listed destination floor is not already highlighted, click the button next to the listed destination floor and make sure it lights up (if it does not high up, click again).
+- Make sure entire body is within the elevator before the elevator doors close
 
 
-5)
-- Loop
-	- Make sure entire body is within the elevator before the elevator doors close
-	- When elevator doors open:
+4) Exiting elevator
+- For every time the door opens again:
+	- Until the floor on which the doors open equals the destination floor.
 		- If floor on which doors open does not equal destination floor, do not exit.
-		- If floor on which doors open equals destination floor, exit!
 - End of Loop
+- Exit!
 
+————————————————————————————————————————
 
+Algorithm for every day activity - Making cereal bowl
 
+1) Location
+- Go to kitchen
 
+2) Milk check
+- Open fridge
+- Check if milk is present, not spoiled, and enough to fill a cereal bowl halfway with milk
 
-Algorithm for every day activity
+3) Cereal check and selection, and potential grocery store trip
+- Open cereal cabinet
+- Look at what cereals are available
+		- If no cereals are available, drive to grocery store to get cereal and milk, if necessary
+		- Otherwise, select cereal to have out of available options
+- Take out and taste a piece of cereal from selected cereal box:
+	- If piece is stale, throw out cereal box and
+		- Look at cereal cabinet again
+		- If more cereals are available, select from available options
+		- Otherwise (if no more cereals are available) drive to grocery store to get cereal and milk, if necessary
+	- Otherwise if piece is not stale and more milk is necessary, drive to grocery store to get milk
+	- Otherwise if piece is not stale and milk is adequate, end.
+
+4) Combine
+- Remove bowl from dish cabinet
+- Fill bowl halfway with milk
+- Fill bowl with cereal until cereal and milk are almost at the top of the bowl
+- Remove spoon from utensil drawer
+
+5) Enjoy!
 
 	
