@@ -1,0 +1,26 @@
+.column-1 {
+ background-color: hotpink;
+ float: left;
+ width: 50%;
+}
+
+.column-2 {
+  background-color: green;
+  float: right;
+  width: 50%;
+}
+
+body {
+  font-family: Tahoma;
+}
+
+details {
+  color: gold;
+}
+
+footer {
+  border-top: thick double red;
+  padding: 20px;
+  border: 10px solid;
+  border-radius: 15px;
+}
