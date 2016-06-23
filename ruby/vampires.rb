@@ -1,12 +1,11 @@
 #Start of program
 puts "How many employees will be processed?"
-	employees_to_process = gets.chomp
+	employees_to_process = gets.to_i
 	counter_variable = 0
 
 #loop on vampire questions
 until 
-counter_variable.to_i == employees_to_process.to_i
-
+counter_variable == employees_to_process
 
 	#loop on allergies
 	puts "Please name any allergies (type 'done' when finished)"

@@ -1,0 +1,74 @@
+4-6
+
+#     An encrypt method that advances every letter of a string one letter forward. So "abc" would become "bcd". For now, you can assume lowercase input and output. Any space character should remain a space character -- no change made.
+
+def encrypt(plain_message)
+  #string => string
+  #go through the letters
+  #1. find out how many letters
+  #2. create loop that goes up until those letters
+  #3. look at each individual letter and change it wiht next
+  #convert each letter at a time 
+  #put result somewhere
+  #4. store in result
+  #5. return final result
+  result = ''
+  
+  character_count = plain_message.length
+  
+  character_count.times do |index|
+    current_letter = plain_message[index]
+    
+    if current_letter == 'z'
+      next_letter = 'a'
+    elsif current_letter == ' '
+      next_letter = ' '
+    else
+      next_letter = current_letter.next
+    end
+    
+    result += next_letter
+  end
+  
+  result
+  
+end
+
+# puts "encrypt('abc') returns #{encrypt('ab c')}"
+# p encrypt("ab c") == "bc d"
+# puts "encrypt('zed') returns #{encrypt('zed')}"
+# p encrypt("zed") == "afe"
+
+# http://ruby-doc.org/core-2.2.0/Integer.html#method-i-times
+#     A decrypt method that reverses the process above. Note that Ruby doesn't have a built-in method for going backward one letter. How can you find out where a letter is in the alphabet, then access the letter right before it? Hint: In the IRB session above, you learned how to ask a string for the index of a letter. "abcdefghijklmnopqrstuvwxyz" counts as a string.
+
+# p alphabet.index('m')
+# p alphabet[11]
+
+def decrypt(encrypted_message)
+  result = ''
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  
+  character_count = encrypted_message.length
+  
+  character_count.times do |index|
+    #find current index of current letter
+    #subtract 1 from it
+    # go back to alhpabet and retrive that new number with lesser number
+    #add to result
+    current_letter = encrypted_message[index]
+    current_index = alphabet.index(current_letter)
+    previous_index = current_index - 1
+    previous_letter = alphabet[previous_index]
+    result += previous_letter
+    
+  end
+  result
+  
+end
+
+
+puts "decrypt('bcd') returns #{decrypt('bcd')}"
+p decrypt("bcd") == "abc"
+puts "decrypt('afe') returns #{decrypt('afe')}"
+p decrypt("afe") == "zed"
