@@ -2,28 +2,7 @@
 #Swapping the first and last name.
 # Changing all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou', and all of the consonants (everything else besides the vowels) to the next consonant in the alphabet. So 'a' would become 'e', 'u' would become 'a', and 'd' would become 'f'
 
-#Release 0 - part 1
-name = "Felicia Torres"
-p name
 
-name_split = name.split(' ')
-p name_split
-
-name_swapped = name_split.reverse!
-p name_swapped
-
-#Release 0 - part 2
-
-#Step 1 - change swapped name from array to string
-name_swapped = name_swapped.join(' ')
-p name_swapped
-
-#Step 2 - change strig to all lowercase
-name_swapped = name_swapped.downcase
-
-#Step 3 - change swapped name string to array of characters
-name_swapped = name_swapped.chars
-p name_swapped
 
 #Step 4 - change vowels to next vowel
 # writing a next_vowel method that takes a vowel character and returns the next vowel character.
@@ -76,10 +55,33 @@ def letter_change(array)
 		end
 		index += 1
 	end
-	return array
+	return array.join('')
 end
 
-letter_change(name_swapped)
+
+
+#Release 1
+#Provide a user interface that lets a user enter a name and get a fake name back. Let the user do this repeatedly until they decide to quit by typing 'quit'. (They might just hit Enter to continue.)
+
+
+puts "Please enter a name or write 'quit'"
+name = gets.chomp
+until name == "quit"
+	name_split = name.split(' ')
+	name_swapped = name_split.reverse!
+	name_swapped = name_swapped.join(' ')
+	name_swapped = name_swapped.downcase
+	name_swapped = name_swapped.chars
+	p letter_change(name_swapped)
+	puts "Please enter another name or write 'quit'"
+	name = gets.chomp
+end
+
+
+
+
+
+
 
 
 
