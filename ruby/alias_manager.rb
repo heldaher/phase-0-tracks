@@ -55,14 +55,16 @@ def letter_change(array)
 		end
 		index += 1
 	end
-	return array.join('')
+	# return array.join('')
+	alias_name = array.join('')
 end
 
 
-
-#Release 1
+#Release 1 & 2
 #Provide a user interface that lets a user enter a name and get a fake name back. Let the user do this repeatedly until they decide to quit by typing 'quit'. (They might just hit Enter to continue.)
 
+names = []
+alias_names = []
 
 puts "Please enter a name or write 'quit'"
 name = gets.chomp
@@ -72,10 +74,36 @@ until name == "quit"
 	name_swapped = name_swapped.join(' ')
 	name_swapped = name_swapped.downcase
 	name_swapped = name_swapped.chars
-	p letter_change(name_swapped)
+	p alias_name = letter_change(name_swapped)
+	names << name
+	alias_names << alias_name
 	puts "Please enter another name or write 'quit'"
 	name = gets.chomp
 end
+
+p names
+p alias_names
+
+
+#Capitalize first letter of alias_names
+index = 0
+until index >= alias_names.length
+	alias_names[index] = alias_names[index].capitalize
+	index += 1
+end
+
+
+index = 0
+while index < names.length
+	puts "#{names[index]} becomes the alias #{alias_names[index]}"
+	#puts names[index]
+	#puts "becomes"
+	#puts alias_names[index]
+	#puts " "
+	index += 1
+end
+
+
 
 
 
