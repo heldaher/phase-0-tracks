@@ -8,12 +8,17 @@ age = 0
 
 class Santa
 
-	def initialize (gender, ethnicity, beard_description, weight)
+	attr_reader :age, :ethnicity
+	attr_accessor :gender
+
+#	def initialize (gender, ethnicity, beard_description, weight)
+	def initialize (gender, ethnicity, age)
 		#puts "Initializing Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
-		@beard_description = beard_description
-		@weight = weight
+		@age = age
+#		@beard_description = beard_description
+#		@weight = weight
 	end
 
 	def speak
@@ -25,13 +30,13 @@ class Santa
 	end
 
 	#getter
-	def age
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
+#	def age
+#		@age
+#	end
+#
+#	def ethnicity
+#		@ethnicity
+#	end
 
 	#setter
 	def celebrate_birthday(age)
@@ -48,9 +53,9 @@ class Santa
 		#reindeer_ranking.push(name)
 	end
 
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+#	def gender=(new_gender)
+#		@gender = new_gender
+#	end
 
 end
 
@@ -81,7 +86,7 @@ end
 #p santas
 
 #Release 2 driver code
-santa = Santa.new("male", "korean", "poofy", "eat more cookies")
+#santa = Santa.new("male", "korean", "poofy", "eat more cookies")
 #puts "#{santa.ethnicity} Santa is not very old at the young age of 
 	#{santa.celebrate_birthday(age)}"
 #santa.get_mad_at("henri")
@@ -90,10 +95,26 @@ santa = Santa.new("male", "korean", "poofy", "eat more cookies")
 #reindeer_ranking.push("henri")
 #p reindeer_ranking
 
-p santa
-santa.gender = "female"
-p santa
+#p santa
+#santa.gender = "female"
+#p santa
 
+#Release 4 - create lots of santas
+
+example_ethnicities = ["black", "Latino", "white", 
+	"Japanese-African", "prefer not to say", 
+	"Mystical Creature (unicorn)", "N/A"]
+example_genders = ["agender", "female", "bigender", 
+	"male", "female", "gender fluid", "N/A"]
+
+#Loop to make 50 instances
+  index = 0
+  while index < 50
+  	age = rand(140)
+  	santa = Santa.new(example_genders.sample, example_ethnicities.sample, age)
+ 	puts "#{santa.gender} #{santa.ethnicity} #{santa.age}"
+  index += 1
+  end
 
 
 
