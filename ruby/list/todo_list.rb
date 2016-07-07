@@ -1,15 +1,21 @@
 class TodoList
-	attr_accessor :list_array
+  def initialize(list_array)
+    @list_array = list_array
+  end  
 
-	def initialize(item1, item2)
-		@item1 = item1
-		@item2 = item2
-	end
+  def get_items
+    @list_array
+  end  
 
-	def get_items
-		@list
-	end
+  def add_item(item)
+  	@list_array << item
+  end
+
+  def delete_item(item)
+  	@list_array.delete(item)
+  end
+
+  def get_item(index)
+  	@list_array[index]
+  end
 end
-
-list_one = TodoList.new("walk the dog", "mow the lawn")
-p list_one
