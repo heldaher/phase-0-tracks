@@ -19,16 +19,18 @@ class VirusPredictor
 
 #Calls two methods
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+  #  predicted_deaths(@population_density, @population, @state)
+  #  speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
-#We guess that private means methods within private cannot be used outside of the private block
+#Methods within private cannot be used outside of the class
   private
 
 #takes three variables and applies conditional flow logic to predict number of deaths
 #we guees .floor method will round values down
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths #(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -48,7 +50,7 @@ class VirusPredictor
 
 #this method takes two variables and applies conditional flow logic to predict the speed of the spread of the disease
 #will output string with speed variable interpolated and the speed variable is being calculated within the method
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
