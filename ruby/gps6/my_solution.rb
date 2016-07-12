@@ -31,18 +31,32 @@ class VirusPredictor
 #takes three variables and applies conditional flow logic to predict number of deaths
 #we guees .floor method will round values down
   def predicted_deaths #(population_density, population, state)
-    # predicted deaths is solely based on population density
+    predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+     number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+     number_of_deaths = (@population * 0.3).floor
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+     number_of_deaths = (@population * 0.2).floor
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+     number_of_deaths = (@population * 0.1).floor
     else
-      number_of_deaths = (@population * 0.05).floor
+     number_of_deaths = (@population * 0.05).floor
     end
+
+##Refactor attempt - we tried to use a case method, it would not work
+    # case population_density
+    # when >=200 
+    #   number_of_deaths = (@population * 0.4).floor
+    # when >=150
+    #   number_of_deaths = (@population * 0.3).floor
+    # when >=100
+    #   number_of_deaths = (@population * 0.2).floor
+    # when >=50
+    #   number_of_deaths = (@population * 0.1).floor
+    # else
+    #   number_of_deaths = (@population * 0.05).floor  
+    # end     
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
@@ -104,3 +118,21 @@ end
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+    #There is a rocket symbol that is used after a key (such as a string), or you can use a colon after a symbol.
+
+# What does require_relative do? How is it different from require?
+    # The require_relative grabs the code from the file in quotations 
+    # Require_relative is used when the file provided is in the same folder, whereas require needs more information on the folder from which to grab the .rb file
+
+# What are some ways to iterate through a hash?
+    # .each, .times or two ways we have become familiar with
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+    # They were instance variables so they did not have to be passed into the methods b/c they were already available to all the methods in the class
+
+# What concept did you most solidify in this challenge?
+    # Creating a placeholder variable inside of a loop can be helpful to accomplish a task.
+
+
+
