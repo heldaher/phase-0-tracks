@@ -19,8 +19,40 @@ function greatest_length(array) {
 		console.log(Math.max.apply(Math, new_array));
 }
 
-// Driver code
-greatest_length(["bernard","frank","toby","this should be the longest","short"]);
+// Release 1
+// write a function that takes two objects and checks 
+// to see if the objects share at least one key-value pair
+
+// Write a function called share_pair which takes two objects as argument
+// Write a for loop that:
+//   - FOR each key in an object, see if it is INCLUDED in the other object
+//   - IF compared items are equal, than return true
+//   - ELSEIF items are not queal, than do the same for value
+//   - ELSE return false
+
+function share_pair(object1,object2) {
+	for (var i = 0; i < object1.length; i++)
+		{if ( (object2.indexOf(object1.key[i])) != null)
+			console.log("true");
+		elsif (object2.indexOf(object1.value[i]) != null)
+			return true;
+		else console.log("false");}
+}
+
+
+/////////////////////////////////////////////////////////////
+// Driver code 
+
+// Release 0
+//greatest_length(["bernard","frank","toby","this should be the longest"]);
+//greatest_length(["MJ","Kobe","Lebron"]);
+
+// Release 1 - would not work
+var bball_players = {nickname: "MJ", age: 52};
+var football_players = {name: "Maradonna", age: 52};
+console.log(share_pair(bball_players,football_players));
+
+
 
 
 
