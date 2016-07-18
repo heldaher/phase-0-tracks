@@ -3,27 +3,27 @@
 // it would return "longest phrase".
 
 // Release 0
-// Write a function called greatest_length
-// Function takes an array (of words or phrases)
-// return longest word or phrase in the array
-//    Write a for loop. For each item in the array, run string.length. 
-//	  Create a new array which takes replaces the items with their length
-// 	  Return the max number
+// Create an empty array
 
-// function greatest_length(array) {
-// 	for (var i = 0; i < array.length; i++) {
-// 		return (array[i]).length
-// 	}
-// }
+var new_array = [];
+
+// Write a function called greatest_length which takes an array as its argument
+// Write a for loop. 
+// For each item in the array, run item.length. 
+// Add to new_array, which replaces the items with their length
+// Return the max length
 
 function greatest_length(array) {
-	for (var i = 0; i < array.length; i++) {
-		console.log((array[i]).length)
-	}
+	for (var i = 0; i < array.length; i++) 
+		{new_array.push((array[i]).length)}
+		console.log(Math.max.apply(Math, new_array));
 }
 
 // Driver code
-console.log(greatest_length(["bernard","frank","toby"]))
+greatest_length(["bernard","frank","toby","this should be the longest","short"]);
+
+
+
 
 
 
