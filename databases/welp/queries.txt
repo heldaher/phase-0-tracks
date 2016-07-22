@@ -1,0 +1,17 @@
+2)
+sqlite> SELECT * FROM users LEFT OUTER JOIN reviews ON reviews.user_id=users.id LEFT OUTER JOIN businesses ON businesses.id=reviews.business_id;
+1|Bradford|Pitt|||||||
+2|Mandy|Kaling|1|4|very good pizza|1|2|1|Grundy Hollow Wedding Chapel
+3|Angela|Jolie|3|5|I had a blast!|3|3|3|The Beagle Nightclub
+4|Steven|Wonder|2|3|was 15 minutes|2|4|2|Amir's Towing
+
+3)
+sqlite> SELECT users.first_name, users.last_name, businesses.Name, reviews.stars, reviews.comment FROM users LEFT OUTER JOIN reviews ON reviews.user_id=users.id LEFT OUTER JOIN businesses ON businesses.id=reviews.business_id;
+Bradford|Pitt|||
+Mandy|Kaling|Grundy Hollow Wedding Chapel|4|very good pizza
+Angela|Jolie|The Beagle Nightclub|5|I had a blast!
+Steven|Wonder|Amir's Towing|3|was 15 minutes
+
+4)
+sqlite> SELECT users.first_name, users.last_name, businesses.Name, reviews.stars, reviews.comment FROM users LEFT OUTER JOIN reviews ON reviews.user_id=users.id LEFT OUTER JOIN businesses ON businesses.id=reviews.business_id WHERE businesses.Name = "The Beagle Nightclub";
+Angela|Jolie|The Beagle Nightclub|5|I had a blast!
