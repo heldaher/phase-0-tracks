@@ -49,10 +49,32 @@ loop do
 #explore ORM
 articles = db.execute("SELECT * FROM articles")
 articles.each do |article|
-  puts "#{article['name']} is a #{article['genre']} article"
+  puts "#{article['name']} is a #{article['genre']} article. Must-read? #{article['must_read']}"
 end
 
 #clear table
 #db.execute("DELETE FROM articles")
 
-#idea - allow user to change read_article drom default "no" to "yes"
+#idea - allow user to change must_read value if they disagree
+puts "----------------"
+puts "Did you disagree with any of the must-read indicators? (y/n)"
+  must_read_agree = gets.chomp
+  if must_read_agree == 'n'
+    puts "Glad you agree"
+  elsif must_read_agree == 'y'
+    
+    any_more_disagreements = ''
+    until any_more_disagreements == 'n'
+    puts "Which article was, in your view, incorrectly called must-read? Please enter the name."
+      article_disagree = gets.chomp
+      db.execute("UPDATE articles SET must_read='true' WHERE name='#{article_disagree}'")
+    puts "Did you disagree with any other of the must-read indicators? (y/n)"
+    any_more_disagreements = gets.chomp
+    end
+
+    
+  end
+
+
+
+
