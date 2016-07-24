@@ -22,8 +22,17 @@ db.execute(create_table_cmd)
 #db.execute("INSERT INTO articles (name, genre) VALUES ('tesla master plan 2', 'business')")
 
 #get user input
-# Loop
+loop do
+  puts "Please enter an article name (or type 'done')"
+  article_name = gets.chomp
 
+  if article_name == 'done'
+  	break
+  else 
+  	puts "Please enter the genre of the article"
+    article_genre = gets.chomp
+  end
+ end
 
 
 #explore ORM
