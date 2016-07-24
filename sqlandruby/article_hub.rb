@@ -4,6 +4,7 @@ require 'faker'
 
 #create SQLite3 database
 db = SQLite3::Database.new("articles.db")
+db.results_as_hash = true
 
 #make a create table command - delimiter
 create_table_cmd = <<-SQL
@@ -18,4 +19,17 @@ SQL
 db.execute(create_table_cmd)
 
 #add test article
-db.execute("INSERT INTO articles (name, genre) VALUES ('tesla master plan 2', 'business')")
+#db.execute("INSERT INTO articles (name, genre) VALUES ('tesla master plan 2', 'business')")
+
+#get user input
+# Loop
+
+
+
+#explore ORM
+articles = db.execute("SELECT * FROM articles")
+#puts articles.class
+#p articles
+articles.each do |article|
+  puts "#{article['name']} is a #{article['genre']} article"
+end
