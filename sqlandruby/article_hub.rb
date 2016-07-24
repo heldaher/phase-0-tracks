@@ -1,12 +1,11 @@
 #require gems
 require 'sqlite3'
-require 'faker'
 
 #create SQLite3 database
 db = SQLite3::Database.new("articles.db")
 db.results_as_hash = true
 
-#make a create table command - delimiter
+#make a create table command
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS articles(
     id INTEGER PRIMARY KEY,
@@ -15,7 +14,7 @@ create_table_cmd = <<-SQL
   )
 SQL
 
-#Execute
+#execute create table command
 db.execute(create_table_cmd)
 
 #add test article
@@ -31,9 +30,9 @@ loop do
   else 
   	puts "Please enter the genre of the article"
     article_genre = gets.chomp
+    db.execute("INSERT INTO articles (name, genre) VALUES ('#{article_name}','#{article_genre}')")
   end
  end
-
 
 #explore ORM
 articles = db.execute("SELECT * FROM articles")
@@ -42,3 +41,5 @@ articles = db.execute("SELECT * FROM articles")
 articles.each do |article|
   puts "#{article['name']} is a #{article['genre']} article"
 end
+
+#clear table
