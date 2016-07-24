@@ -62,19 +62,16 @@ puts "Did you disagree with any of the must-read indicators? (y/n)"
   if must_read_agree == 'n'
     puts "Glad you agree"
   elsif must_read_agree == 'y'
-    
     any_more_disagreements = ''
     until any_more_disagreements == 'n'
-    puts "Which article was, in your view, incorrectly called must-read? Please enter the name."
-      article_disagree = gets.chomp
-      db.execute("UPDATE articles SET must_read='true' WHERE name='#{article_disagree}'")
+    puts "Which article was, in your view, incorrectly called must-read? Please enter the name (or type 'none')."
+      false_positive = gets.chomp
+      db.execute("UPDATE articles SET must_read='false' WHERE name='#{false_positive}'")
+    puts "Which article was, in your view, incorrectly NOT called must-read? Please enter the name (or type 'none')."
+      false_negative = gets.chomp
+      db.execute("UPDATE articles SET must_read='true' WHERE name='#{false_negative}'")
     puts "Did you disagree with any other of the must-read indicators? (y/n)"
     any_more_disagreements = gets.chomp
     end
-
-    
   end
-
-
-
 
