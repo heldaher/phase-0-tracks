@@ -1,12 +1,9 @@
 console.log("test script")
 
-var els = document.getElementsByTagName("h1");
-var el = els[0];
-
- function changeFontColor() {
-   var els = document.getElementsByTagName("h1");
-   var el = els[0];
-   el.style.color = "yellow";
+function changeFontColor(event) {
+   event.target.style.color = "yellow";
 }
 
-changeFontColor()
+   var els = document.getElementsByTagName("h1");
+   var el = els[0];
+   el.addEventListener("click", changeFontColor);
